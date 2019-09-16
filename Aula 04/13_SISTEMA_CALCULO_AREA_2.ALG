@@ -1,4 +1,4 @@
-Algoritmo "12_SISTEMA_CALCULO_AREA"
+Algoritmo "13_SISTEMA_CALCULO_AREA_2"
 // Disciplina  : Introdução à Lógica de Programação
 // Professor   : Enzo Bertazini
 // Descrição   : Calcula Áreas
@@ -32,7 +32,7 @@ Fimfuncao
 //Área de um círculo
 Procedimento aCirculo
 
-var area, raio : real
+var area, raio, diametro : real aux:caracter
 
 inicio
 
@@ -42,12 +42,35 @@ inicio
       escreval("Área do Círculo")
       escreval("")
 
-      repita
-         escreval("Digite o valor do raio do círculo: ")
-         leia (raio)
-      ate raio > 0
+      escreval("1) Raio")
+      escreval("2) Diâmetro")
 
-      area <- raio * pi
+      escreval("")
+
+      escreva("Digite sua opção: ")
+      leia(aux)
+
+      escreval("")
+
+      escolha aux
+
+      caso "1"
+         repita
+            escreva("Digite o valor do raio do círculo: ")
+            leia (raio)
+         ate raio > 0
+
+         area <- raio * pi
+
+      caso "2"
+         repita
+            escreva("Digite o valor do diâmetro do círculo: ")
+            leia (diametro)
+         ate diametro > 0
+
+         area <- (diametro/2) * pi
+
+      fimescolha
 
       escreval("")
       escreval("Área do Círculo: ",area)
@@ -63,7 +86,7 @@ Fimprocedimento
 //Área de um triângulo
 Procedimento aTriangulo
 
-var area, base, altura : real
+var area, base, altura, ladoA, ladoB, ladoC, anguloA : real aux : caracter
 
 inicio
 
@@ -73,17 +96,41 @@ inicio
       escreval("Área do Triângulo")
       escreval("")
 
-      repita
-         escreval("Digite o valor da base do triângulo: ")
-         leia (base)
-      ate base > 0
+      escreval("1) Base e Altura")
+      escreval("2) Lado, Lado e Ângulo Adjacente")
+      escreval("3) Triângulo Equilátero")
+      escreval("4) Fórmula de Heron")
 
-      repita
-         escreval("Digite o valor da altura do triângulo: ")
-         leia (altura)
-      ate altura > 0
+      escreval("")
 
-      area <- (base * altura) / 2
+      escreva("Digite sua opção: ")
+      leia(aux)
+
+      escreval("")
+
+      escolha aux
+
+      caso "1"
+         repita
+            escreval("Digite o valor da base do triângulo: ")
+            leia (base)
+         ate base > 0
+
+         repita
+            escreval("Digite o valor da altura do triângulo: ")
+            leia (altura)
+         ate altura > 0
+
+         area <- (base * altura) / 2
+
+      caso "2"
+         repita
+            escreval("Digite o valor do ângulo adjacente em graus: ")
+            leia (anguloA)
+         ate anguloA > 0
+         anguloA <- (anguloA * Pi)/180
+
+      fimescolha
 
       escreval("")
       escreval("Área do Triângulo: ",area)
